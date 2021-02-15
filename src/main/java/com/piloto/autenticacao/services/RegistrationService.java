@@ -17,7 +17,7 @@ public class RegistrationService {
 
         if (registeredUser == null){
             repository.save(user);
-            System.out.println("OK, CADASTRADO");
+            System.out.println("REGISTRATION COMPLETED SUCCESSFULLY");
         }
         else if (registeredUser.getCpf().equals(user.getCpf())){
             System.out.println("CPF ALREADY EXIST");

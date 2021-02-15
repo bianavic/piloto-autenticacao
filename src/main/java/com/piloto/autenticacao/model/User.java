@@ -16,11 +16,11 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotNull(message = "CPF É OBRIGATORIO")
-    @CPF(message = "CPF INVALIDO")
+    @NotNull(message = "CPF IS REQUIRED")
+    @CPF(message = "INVALID CPF")
     private String cpf;
-    @NotNull(message = "SENHA É OBRIGATORIA")
-    @Size(min = 6, message = "Digite pelo menos 6 caracteres")
+    @NotNull(message = "PASSWORD IS REQUIRED")
+    @Size(min = 6, message = "PASSWORD HAS AT LEAST 6 CHARACTERS")
     private String password;
 
     public User() {

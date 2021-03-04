@@ -1,6 +1,8 @@
 package com.piloto.autenticacao.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,11 +18,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Getter
+    @Setter
     @CPF
     @NotNull(message = "These fields are required")
     private String cpf;
-
-    @NotNull(message = "These fields are required")
+    @Getter @Setter
+    @NotNull(message = "These field are required")
     @Size(min = 8, message = "Try one with at least 8 characters")
     private String password;
 
@@ -30,30 +34,6 @@ public class User implements Serializable {
     public User(String cpf, String password, Integer id) {
         this.cpf = cpf;
         this.password = password;
-        this.id = id;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
         this.id = id;
     }
 }

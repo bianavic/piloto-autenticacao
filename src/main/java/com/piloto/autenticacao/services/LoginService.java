@@ -19,6 +19,12 @@ public class LoginService {
 
         User user = repository.findByCpf(userDto.getCpf());
 
+        if (user == null) throw new ResourceNotFoundException("User not found");
+
+        else if (!(user.getPassword().equals(userDto.getPassword())))
+            throw new NotAuthorizedException("Invalid password");
+
+        /**
         if (user == null)
         {
             throw new ResourceNotFoundException("User not found");
@@ -28,6 +34,7 @@ public class LoginService {
             if (!(user.getPassword().equals(userDto.getPassword())))
                 throw new NotAuthorizedException("Invalid password");
         }
+         **/
 
     }
 }

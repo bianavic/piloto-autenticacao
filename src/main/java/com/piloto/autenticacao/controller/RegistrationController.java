@@ -1,5 +1,6 @@
 package com.piloto.autenticacao.controller;
 
+import com.piloto.autenticacao.dto.UserDto;
 import com.piloto.autenticacao.model.User;
 import com.piloto.autenticacao.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 
+@Getter @Setter
 @Entity
 public class User implements Serializable {
 
@@ -18,12 +19,10 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Getter
-    @Setter
     @CPF
     @NotNull(message = "These fields are required")
     private String cpf;
-    @Getter @Setter
+
     @NotNull(message = "These field are required")
     @Size(min = 8, message = "Try one with at least 8 characters")
     private String password;

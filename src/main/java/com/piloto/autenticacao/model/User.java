@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 
-@Getter @Setter
+@Getter
 @Entity
 public class User implements Serializable {
 
@@ -27,12 +27,4 @@ public class User implements Serializable {
     @Size(min = 8, message = "Try one with at least 8 characters")
     private String password;
 
-    public User() {
-    }
-
-    public User(String cpf, String password, Integer id) {
-        this.cpf = cpf;
-        this.password = password;
-        this.id = id;
-    }
 }

@@ -14,13 +14,13 @@ import javax.validation.UnexpectedTypeException;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-     @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException exception) {
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(exception.getMessage())
-                .build();
+            .newBuilder()
+            .message(exception.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.NOT_FOUND);
     }
@@ -29,9 +29,9 @@ public class RestExceptionHandler {
     public ResponseEntity<?> handleCpfExistsException(CpfExistsException exception) {
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(exception.getMessage())
-                .build();
+            .newBuilder()
+            .message(exception.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.NOT_ACCEPTABLE);
     }
@@ -41,9 +41,9 @@ public class RestExceptionHandler {
     public ResponseEntity<?> handleNotAuthorizedException(NotAuthorizedException exception) {
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(exception.getMessage())
-                .build();
+            .newBuilder()
+            .message(exception.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.UNAUTHORIZED);
     }
@@ -52,9 +52,9 @@ public class RestExceptionHandler {
     public ResponseEntity<?> handleMediaType(HttpMediaTypeException media){
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(media.getMessage())
-                .build();
+            .newBuilder()
+            .message(media.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.UNSUPPORTED_MEDIA_TYPE);
     }
@@ -63,9 +63,9 @@ public class RestExceptionHandler {
     public ResponseEntity<?> handleRequestMethod(HttpRequestMethodNotSupportedException media){
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(media.getMessage())
-                .build();
+            .newBuilder()
+            .message(media.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.METHOD_NOT_ALLOWED);
     }
@@ -74,9 +74,9 @@ public class RestExceptionHandler {
     public ResponseEntity<?> handleArgument(MethodArgumentTypeMismatchException argument){
 
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(argument.getMessage())
-                .build();
+            .newBuilder()
+            .message(argument.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.BAD_REQUEST);
     }
@@ -84,9 +84,9 @@ public class RestExceptionHandler {
     @ExceptionHandler(UnexpectedTypeException.class)
     public ResponseEntity<?> handleValid(UnexpectedTypeException valid){
         ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                .newBuilder()
-                .message(valid.getMessage())
-                .build();
+            .newBuilder()
+            .message(valid.getMessage())
+            .build();
 
         return new ResponseEntity<>(exceptionDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -97,9 +97,9 @@ public class RestExceptionHandler {
         if (valid.getMessage().contains("default message [invalid Brazilian individual taxpayer registry number (CPF)]]"))
         {
             ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                    .newBuilder()
-                    .message("Invalid fields")
-                    .build();
+                .newBuilder()
+                .message("Invalid fields")
+                .build();
 
             return new ResponseEntity<>(exceptionDetails, HttpStatus.BAD_REQUEST);
         }
@@ -107,20 +107,20 @@ public class RestExceptionHandler {
         else if (valid.getMessage().contains("default message [Try one with at least 8 characters]]"))
         {
             ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                    .newBuilder()
-                    .message("Invalid fields")
-                    .build();
+                .newBuilder()
+                .message("Invalid fields")
+                .build();
 
             return new ResponseEntity<>(exceptionDetails, HttpStatus.BAD_REQUEST);
         }
 
         else if (valid.getMessage().contains("default message [This field is required]]")) {
             ExceptionDetails exceptionDetails = ExceptionDetails.ExceptionDetailsBuilder
-                    .newBuilder()
-                    .message("These fields are required")
-                    .build();
+                .newBuilder()
+                .message("These field are required")
+                .build();
             return new ResponseEntity<>(exceptionDetails, HttpStatus.BAD_REQUEST);
         }
-        return null;
+        return ResponseEntity.badRequest().build();
     }
 }

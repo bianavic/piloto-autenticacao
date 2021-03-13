@@ -1,7 +1,9 @@
 package com.piloto.autenticacao.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -11,6 +13,8 @@ import java.io.Serializable;
 
 @Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "user")
 public class User implements Serializable {
 

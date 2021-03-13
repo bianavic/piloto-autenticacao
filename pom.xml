@@ -63,15 +63,10 @@
 			<version>RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
-<!--		<dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.4.0.Final</version>
-		</dependency>-->
-		<dependency>
-			<groupId>org.hibernate.validator</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>7.0.1.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>

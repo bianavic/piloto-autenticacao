@@ -1,10 +1,19 @@
 package com.piloto.autenticacao.config;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.builders.ResponseMessageBuilder;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -21,13 +30,4 @@ public class SwaggerConfig {
             .paths(PathSelectors.any())
             .build();
     }
-
-/*    private ApiInfo getApiInfo() {
-      return new ApiInfoBuilder()
-          .title("Authentication Project")
-          .description("Simple app documentation page. This is for test purpose")
-          .version("0.0.1")
-          .contact(new Contact("Time", "http://www.time.com", "time@email.com"))
-          .build();
-    }*/
 }

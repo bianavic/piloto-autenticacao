@@ -32,4 +32,15 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
+    private String token;
+    private String type;
+
+    public User(String cpf, String password) {
+        this.cpf = cpf;
+        this.password = password;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }
